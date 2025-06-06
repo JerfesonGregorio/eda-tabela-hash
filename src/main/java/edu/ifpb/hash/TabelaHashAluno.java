@@ -24,7 +24,8 @@ public class TabelaHashAluno {
             LinkedList<Aluno> lista = elementos[index];
 
             return lista.stream()
-                    .filter(al -> al.getMatricula() == matricula).findFirst()
+                    .filter(al -> al.getMatricula() == matricula)
+                    .findFirst()
                     .orElseThrow(() -> new Exception("Aluno não encontrado"))
                     .getNome();
         } catch (Exception e) {
