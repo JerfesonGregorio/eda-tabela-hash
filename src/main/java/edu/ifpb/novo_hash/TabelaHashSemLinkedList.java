@@ -27,13 +27,7 @@ public class TabelaHashSemLinkedList {
         for(Aluno al : antigo) {
             if(al != null) {
                 if(!al.getNome().isEmpty()) {
-                    int index = funcaoHash(al.getMatricula(), elementos.length);
-                    Aluno corrente = elementos[index];
-                    while(corrente != null) {
-                        index++;
-                        corrente = elementos[index];
-                    }
-                    elementos[index] = al;
+                    inserirValor(al.getMatricula(), al.getNome());
                 }
             }
         }
