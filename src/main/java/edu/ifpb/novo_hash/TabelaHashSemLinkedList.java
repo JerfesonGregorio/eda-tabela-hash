@@ -14,22 +14,39 @@ public class TabelaHashSemLinkedList {
         this.elementos = new Aluno[tamanho];
     }
 
-    private int funcaoHash(int matricula) throws Exception {
+    private int funcaoHash(int matricula, int tamanho) throws Exception {
         if(matricula < 0) {
             throw new Exception("Matricula inválida");
         }
-        return matricula%elementos.length;
+        return matricula%tamanho;
     }
 
-    public void redimencionar() {
+    public void redimencionar() throws Exception {
+        this.elementosRedimencionado = new Aluno[elementos.length * 2];
 
+        for(Aluno al : elementos) {
+            if(al != null) {
+                if(!al.getNome().isEmpty()) {
+                    int index = funcaoHash(al.getMatricula(), elementosRedimencionado.length);
+                    Aluno corrente = elementosRedimencionado[index];
+                    while(corrente != null) {
+                        index++;
+                        corrente = elementosRedimencionado[index];
+                    }
+                    elementosRedimencionado[index] = al;
+                }
+            }
+        }
+
+        this.elementos = elementosRedimencionado;
     }
 
 
     public void inserirValor(int matricula, String nome) {
         try {
-            int index = funcaoHash(matricula);
+            int index = funcaoHash(matricula, elementos.length);
             Aluno aluno = new Aluno(matricula, nome);
+
 
             if(elementos[index] == null) {
                 elementos[index] = aluno;
@@ -37,11 +54,10 @@ public class TabelaHashSemLinkedList {
                 Aluno corrente = elementos[index];
                 while(corrente != null && !corrente.getNome().isEmpty()) {
                     index++;
+                    if(index == elementos.length) {
+                        redimencionar();
+                    }
                     corrente = elementos[index];
-                }
-
-                if(index == elementos.length) {
-                    redimencionar();
                 }
 
                 elementos[index] = new Aluno(matricula, nome);

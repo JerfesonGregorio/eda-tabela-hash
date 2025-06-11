@@ -15,6 +15,11 @@ public class Main {
         nt.inserirValor(3, "");
         nt.inserirValor(3, "");
         nt.inserirValor(3, "AAAAA");
+        nt.inserirValor(3, "AAAAA");
+        nt.inserirValor(3, "AAAAA");
+        nt.inserirValor(3, "AAAAA");
+        nt.inserirValor(3, "AAAAA");
+        nt.inserirValor(3, "AAAAA");
 
         System.out.println(nt);
 
