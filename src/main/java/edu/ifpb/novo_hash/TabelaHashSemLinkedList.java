@@ -12,11 +12,11 @@ public class TabelaHashSemLinkedList {
         this.elementos = new Aluno[tamanho];
     }
 
-    private int funcaoHash(int matricula, int tamanho) throws Exception {
+    private int funcaoHash(int matricula) throws Exception {
         if(matricula < 0) {
             throw new Exception("Matricula inválida");
         }
-        return matricula%tamanho;
+        return matricula%elementos.length;
     }
 
     public void redimencionar() throws Exception {
@@ -35,7 +35,7 @@ public class TabelaHashSemLinkedList {
 
     public void inserirValor(int matricula, String nome) {
         try {
-            int index = funcaoHash(matricula, elementos.length);
+            int index = funcaoHash(matricula);
             Aluno aluno = new Aluno(matricula, nome);
 
             if(elementos[index] == null) {
@@ -53,6 +53,21 @@ public class TabelaHashSemLinkedList {
                 elementos[index] = new Aluno(matricula, nome);
             }
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public String remover(int matricula) throws Exception {
+        try {
+            int index = funcaoHash(matricula);
+            while(!(elementos[index].getMatricula() == matricula)) {
+                index++;
+            }
+            String nome = elementos[index].getNome();
+            elementos[index].setNome("");
+            return nome;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
