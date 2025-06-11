@@ -33,12 +33,10 @@ public class TabelaHashSemLinkedList {
         }
     }
 
-
     public void inserirValor(int matricula, String nome) {
         try {
             int index = funcaoHash(matricula, elementos.length);
             Aluno aluno = new Aluno(matricula, nome);
-
 
             if(elementos[index] == null) {
                 elementos[index] = aluno;
