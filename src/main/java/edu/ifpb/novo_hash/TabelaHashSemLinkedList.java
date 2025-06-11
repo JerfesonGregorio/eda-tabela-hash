@@ -80,6 +80,24 @@ public class TabelaHashSemLinkedList {
         }
     }
 
+    public String buscar(int matricula) throws Exception {
+        try {
+            int index = funcaoHash(matricula);
+            while(elementos[index] != null && elementos[index].getMatricula() != matricula) {
+                index++;
+            }
+
+            if(elementos[index] == null) {
+                throw new Exception("Aluno não encontrado");
+            }
+
+            return elementos[index].getNome();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     @Override
     public String toString() {
         return "NovaTabelaHash{" +

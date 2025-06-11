@@ -23,7 +23,7 @@ public class Main {
             System.out.println(nt);
             nt.inserirValor(6, "ssss");
             nt.inserirValor(1, "lllll");
-            System.out.println(nt);
+            System.out.println(nt.buscar(1));
 
         } catch (Exception e) {
             throw new RuntimeException(e);
