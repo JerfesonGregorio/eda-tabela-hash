@@ -1,4 +1,4 @@
-package edu.ifpb.hash;
+package edu.ifpb;
 
 public class Aluno {
 

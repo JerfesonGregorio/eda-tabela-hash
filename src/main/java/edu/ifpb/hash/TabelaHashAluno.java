@@ -1,5 +1,7 @@
 package edu.ifpb.hash;
 
+import edu.ifpb.Aluno;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 
