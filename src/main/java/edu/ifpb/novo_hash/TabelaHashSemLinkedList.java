@@ -8,8 +8,6 @@ public class TabelaHashSemLinkedList {
 
     private Aluno[] elementos;
 
-    private Aluno[] elementosRedimencionado;
-
     public TabelaHashSemLinkedList(int tamanho) {
         this.elementos = new Aluno[tamanho];
     }
@@ -22,23 +20,23 @@ public class TabelaHashSemLinkedList {
     }
 
     public void redimencionar() throws Exception {
-        this.elementosRedimencionado = new Aluno[elementos.length * 2];
+        Aluno[] antigo = this.elementos;
 
-        for(Aluno al : elementos) {
+        this.elementos = new Aluno[elementos.length * 2];
+        
+        for(Aluno al : antigo) {
             if(al != null) {
                 if(!al.getNome().isEmpty()) {
-                    int index = funcaoHash(al.getMatricula(), elementosRedimencionado.length);
-                    Aluno corrente = elementosRedimencionado[index];
+                    int index = funcaoHash(al.getMatricula(), elementos.length);
+                    Aluno corrente = elementos[index];
                     while(corrente != null) {
                         index++;
-                        corrente = elementosRedimencionado[index];
+                        corrente = elementos[index];
                     }
-                    elementosRedimencionado[index] = al;
+                    elementos[index] = al;
                 }
             }
         }
-
-        this.elementos = elementosRedimencionado;
     }
 
 
