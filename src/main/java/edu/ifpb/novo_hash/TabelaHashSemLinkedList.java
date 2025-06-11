@@ -59,28 +59,20 @@ public class TabelaHashSemLinkedList {
     }
 
 
-    public String remover(int matricula) throws Exception {
+    public Aluno remover(int matricula) throws Exception {
         try {
-            int index = funcaoHash(matricula);
-            while(elementos[index] != null && elementos[index].getMatricula() != matricula) {
-                index++;
-            }
-
-            if(elementos[index] == null) {
-                throw new Exception("Aluno não encontrado");
-            }
-
-            String nome = elementos[index].getNome();
-            elementos[index].setNome("");
-            elementos[index].setMatricula(0);
-            return nome;
+            Aluno aluno = buscar(matricula);
+            Aluno retorno = new Aluno(aluno.getMatricula(), aluno.getNome());
+            aluno.setNome("");
+            aluno.setMatricula(0);
+            return retorno;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
 
-    public String buscar(int matricula) throws Exception {
+    public Aluno buscar(int matricula) throws Exception {
         try {
             int index = funcaoHash(matricula);
             while(elementos[index] != null && elementos[index].getMatricula() != matricula) {
@@ -91,7 +83,7 @@ public class TabelaHashSemLinkedList {
                 throw new Exception("Aluno não encontrado");
             }
 
-            return elementos[index].getNome();
+            return elementos[index];
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
