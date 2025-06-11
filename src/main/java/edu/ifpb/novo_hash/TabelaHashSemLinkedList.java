@@ -62,14 +62,20 @@ public class TabelaHashSemLinkedList {
     public String remover(int matricula) throws Exception {
         try {
             int index = funcaoHash(matricula);
-            while(!(elementos[index].getMatricula() == matricula)) {
+            while(elementos[index] != null && elementos[index].getMatricula() != matricula) {
                 index++;
             }
+
+            if(elementos[index] == null) {
+                throw new Exception("Aluno não encontrado");
+            }
+
             String nome = elementos[index].getNome();
             elementos[index].setNome("");
             return nome;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 

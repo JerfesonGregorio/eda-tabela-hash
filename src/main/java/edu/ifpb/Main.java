@@ -8,25 +8,33 @@ public class Main {
     public static void main(String[] args) throws Exception {
         TabelaHashSemLinkedList nt = new TabelaHashSemLinkedList(10);
 
-        nt.inserirValor(3, "ssss");
-        nt.inserirValor(2, "ssss");
-        nt.inserirValor(4, "ssss");
-        nt.inserirValor(5, "AAAAA");
-        nt.inserirValor(6, "AAAAA");
-        nt.inserirValor(7, "AAAAA");
-        nt.inserirValor(8, "AAAAA");
-        nt.inserirValor(9, "AAAAA");
-        nt.inserirValor(10, "AAAAA");
 
-        System.out.println(nt);
+        try {
 
-        System.out.println(nt.remover(10));
 
-        System.out.println(nt);
+            nt.inserirValor(3, "ssss");
+            nt.inserirValor(2, "ssss");
+            nt.inserirValor(4, "ssss");
+            nt.inserirValor(5, "AAAAA");
+            nt.inserirValor(6, "AAAAA");
+            nt.inserirValor(7, "AAAAA");
+            nt.inserirValor(8, "AAAAA");
+            nt.inserirValor(9, "AAAAA");
+            nt.inserirValor(10, "AAAAA");
 
-        nt.inserirValor(10, "joao");
+            System.out.println(nt);
 
-        System.out.println(nt);
+            System.out.println(nt.remover(10));
+
+            System.out.println(nt);
+
+            nt.inserirValor(10, "joao");
+
+            System.out.println(nt);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
