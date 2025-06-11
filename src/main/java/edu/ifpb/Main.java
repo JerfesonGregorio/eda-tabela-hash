@@ -6,30 +6,23 @@ import edu.ifpb.novo_hash.TabelaHashSemLinkedList;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        TabelaHashSemLinkedList nt = new TabelaHashSemLinkedList(10);
+        TabelaHashSemLinkedList nt = new TabelaHashSemLinkedList(5);
 
 
         try {
 
 
-            nt.inserirValor(3, "ssss");
-            nt.inserirValor(2, "ssss");
-            nt.inserirValor(4, "ssss");
-            nt.inserirValor(5, "AAAAA");
-            nt.inserirValor(6, "AAAAA");
-            nt.inserirValor(7, "AAAAA");
-            nt.inserirValor(8, "AAAAA");
-            nt.inserirValor(9, "AAAAA");
-            nt.inserirValor(10, "AAAAA");
+            nt.inserirValor(1, "vvvv");
+            nt.inserirValor(6, "3eq");
 
             System.out.println(nt);
 
-            System.out.println(nt.remover(10));
+            System.out.println(nt.remover(1));
+            System.out.println(nt.remover(6));
 
             System.out.println(nt);
-
-            nt.inserirValor(10, "joao");
-
+            nt.inserirValor(6, "ssss");
+            nt.inserirValor(1, "lllll");
             System.out.println(nt);
 
         } catch (Exception e) {

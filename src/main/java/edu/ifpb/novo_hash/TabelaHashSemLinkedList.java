@@ -72,6 +72,7 @@ public class TabelaHashSemLinkedList {
 
             String nome = elementos[index].getNome();
             elementos[index].setNome("");
+            elementos[index].setMatricula(0);
             return nome;
         } catch (Exception e) {
             System.out.println(e.getMessage());
